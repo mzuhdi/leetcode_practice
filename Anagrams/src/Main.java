@@ -9,20 +9,25 @@ public class Main {
     *
     * validAnagram ("rat", "tar") returns true */
     public static void main (String[] args){
-        System.out.println(validAnagramBetter("abz", "acz"));
+        System.out.println(validAnagramSingleHashMap("abz", "abc"));
         System.out.println("        ");
-        System.out.println(validAnagramBetter("racecar", "racecar"));
+        System.out.println(validAnagramSingleHashMap("racecar", "racecar"));
 
+    }
+
+    public static boolean sameLength (String word1, String word2){
+        if (word1.length() != word2.length()){
+            System.out.println("Failed at string length check");
+            return false;
+        }
+        return true;
     }
 
     public static boolean validAnagram (String word1, String word2){
         //Check if the string have the same length
             //If the string doesn't have the same length
                 // return false
-        if (word1.length() != word2.length()){
-            System.out.println("Failed at string length check");
-            return false;
-        }
+        sameLength(word1, word2);
 
         //Iterate through the first string
             //Iterate through the second string
@@ -54,9 +59,7 @@ public class Main {
     public static boolean validAnagramBetter (String word1, String word2){
         //Check if both of the string is not the same length
             // return false
-        if (word1.length() != word2.length()){
-            return false;
-        }
+        sameLength(word1, word2);
 
         //Intialize a map
         //Iterate through the word1 string
@@ -106,10 +109,37 @@ public class Main {
         return true;
     }
 
-    public static boolean validAnagramUsingArray(String word1, String word2){
-        if (word1.length() != word2.length()) {
-            return false;
+    public static boolean validAnagramSingleHashMap(String word1, String word2){
+        sameLength(word1, word2);
+
+        //create HashMap <Char, Int>
+        //Iterate through word1
+            // Add to hashmap every char in word1
+            // Remove of hashmap every char in word2
+
+        // if hashmap value =! 0
+            // return false
+
+        //return true
+
+        HashMap<Character, Integer> hm = new HashMap<Character,Integer>();
+        for (int i = 0; i < word1.length(); i++){
+            hm.put(word1.charAt(i), hm.getOrDefault(word1.charAt(i), 0)+ 1);
+            hm.put(word2.charAt(i), hm.getOrDefault(word2.charAt(i), 0)- 1);
         }
+
+
+        for (int i : hm.values()){
+            if (i != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean validAnagramUsingArray(String word1, String word2){
+        sameLength(word1, word2);
+
         //Create int array size 26 for 26 letters
         //Iterate through the word1
             //Count up for every letter in word1
