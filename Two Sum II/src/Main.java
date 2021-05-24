@@ -12,7 +12,7 @@ public class Main {
         int[] test1 = new int[] {2,3,4};
         int[] test2 = new int[] {1,2,3};
 
-        int[] result = solution(test1,0);
+        int[] result = solution(test1,4);
         System.out.println(result[0] + " " + result[1]);
 
     }
@@ -33,7 +33,7 @@ public class Main {
         int leftPointer = 0;
         int rightPointer = numbers.length - 1;
 
-        while (leftPointer <= rightPointer) {
+        while (leftPointer < rightPointer) {
             if (numbers[leftPointer] + numbers[rightPointer] > target) {
                 rightPointer -= 1;
             } else if (numbers[leftPointer] + numbers[rightPointer] < target) {
