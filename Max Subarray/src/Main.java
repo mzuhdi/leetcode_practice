@@ -31,7 +31,7 @@ public class Main {
         int max = Integer.MIN_VALUE;
         int start = 0;
         int end = 0;
-        for (int i = 1; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             int currentmax = 0;
             for (int j = i; j < nums.length; j++) {
                 currentmax += nums[j];
