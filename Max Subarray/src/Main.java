@@ -56,7 +56,7 @@ public class Main {
         int maxsum = nums[0];
         int currentsum = nums[0];
 
-        for (int i = 0; i < nums.length; i++){
+        for (int i = 1; i < nums.length; i++){
             currentsum = Math.max(currentsum + nums[i], nums[i]);
             maxsum = Math.max(maxsum, currentsum);
         }
