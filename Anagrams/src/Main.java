@@ -134,6 +134,13 @@ public class Main {
                 return false;
             }
         }
+
+       /* for (int i = 0; i < word1.length(); i++){
+            int value = hm.get(word1.charAt(i));
+            if (value != 0) {
+                return false;
+            }
+        }*/
         return true;
     }
 
