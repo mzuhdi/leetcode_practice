@@ -37,4 +37,15 @@ public class Main {
         }
         return prev;
     }
+
+    public static ListNode reverseListRecursive(ListNode head){
+
+        if (head == null && head.next == null){
+            return head;
+        }
+        ListNode reverseListHead = reverseListRecursive(head.next);
+        head.next.next = head;
+        head.next = null;
+        return reverseListHead;
+    }
 }
